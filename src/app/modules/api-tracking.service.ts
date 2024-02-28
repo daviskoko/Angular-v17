@@ -32,7 +32,7 @@ export class ApiTracking {
   track(data: {
     paymentData: object | any,
     response: object | any,
-    responseTime: string
+    responseTime: number | any
   }) {
 
     const trackingData = {
@@ -69,7 +69,7 @@ export class ApiTracking {
   }
 
 
-  submitTracking(data) {
+  submitTracking(data: any) {
 
     fetch(this.trackingEndPoint, {
       method: 'POST',

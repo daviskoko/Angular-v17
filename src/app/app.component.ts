@@ -1,13 +1,18 @@
 import { Component } from '@angular/core';
-import {Flutterwave} from './modules/flutterwave.service';
-import {InlinePaymentOptions, PaymentSuccessResponse} from './modules/models';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+import { Flutterwave } from './modules/flutterwave.service';
+import { InlinePaymentOptions, PaymentSuccessResponse } from './modules/models';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, RouterOutlet],
   template: `<button (click)="makePayment()" >Pay</button>`,
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
-
+  title = 'flutterwave-v17';
 
   paymentData: InlinePaymentOptions = {
     public_key: 'FLWPUBK_TEST-XXXXX-X',
@@ -49,7 +54,4 @@ export class AppComponent {
     console.log('payment is closed');
 
   }
-
-
-
 }

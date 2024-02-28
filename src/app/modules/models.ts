@@ -21,10 +21,10 @@
  * @property onclose {Function}
  */
   class  InlinePaymentOptions  {
-  public_key: string;
-  callbackContext?: object;
-  tx_ref: string;
-  amount: number;
+  public_key!: string;
+  callbackContext?: object | any;
+  tx_ref!: string;
+  amount!: number;
   currency?: string;
   country?: string;
   authorization?: object | string;
@@ -36,8 +36,8 @@
   meta ?: any;
   customer?: object;
   customizations?: object;
-  callback?: (response: object) => void;
-  onclose?: () => void;
+  callback?: (response: object) => any;
+  onclose?: () => any;
 }
 
 
@@ -55,23 +55,27 @@
  * @property payment_plan {String}
  */
 class  AsyncPaymentOptions {
-  public_key: string;
-  tx_ref: string;
-  amount: number;
+  public_key!: string;
+  tx_ref!: string;
+  amount!: number;
   currency?: string;
   country?: string;
   authorization?: object | string;
   payment_options?: string;
-  meta ?: any;
+  meta?: any;
   customer?: object;
   customizations?: object;
   payment_plan?: string | number;
   subaccounts?: any;
   integrity_hash?: any;
+  callback?: (response: object) => any;
+  onclose?: () => any;
 }
 
 
-declare function  FlutterwaveCheckout(any)
+// declare function FlutterwaveCheckout(any)
+
+
 
 /**
  * Payment Response
@@ -100,6 +104,6 @@ declare function  FlutterwaveCheckout(any)
   export {
     InlinePaymentOptions,
     AsyncPaymentOptions,
-    FlutterwaveCheckout,
+    // FlutterwaveCheckout,
     PaymentSuccessResponse
   }
